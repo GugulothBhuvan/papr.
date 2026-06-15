@@ -7,7 +7,22 @@ import time
 from typing import List, Dict, Any, Tuple
 from services import storage
 
-TECTONIC_BIN = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "bin", "tectonic.exe"))
+import platform
+
+def get_tectonic_path():
+    # 1. Check if tectonic is in system PATH
+    system_tectonic = shutil.which("tectonic")
+    if system_tectonic:
+        return system_tectonic
+        
+    # 2. Fallback to local bin directory
+    bin_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "bin"))
+    if platform.system() == "Windows":
+        return os.path.join(bin_dir, "tectonic.exe")
+    else:
+        return os.path.join(bin_dir, "tectonic")
+
+TECTONIC_BIN = get_tectonic_path()
 
 def parse_tectonic_errors(log_content: str) -> List[Dict[str, Any]]:
     """
