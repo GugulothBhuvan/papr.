@@ -1,0 +1,22 @@
+{
+  "id": "9aafd6a1-170d-44fb-b4ec-255604bb247e",
+  "name": "AI",
+  "template": "Blank",
+  "main_file": "main.tex",
+  "created_at": "2026-06-15T10:16:50.243165",
+  "updated_at": "2026-06-15T11:09:08.087583",
+  "files": [
+    {
+      "id": "9112fef2-4d87-4be7-9409-05957187bb68",
+      "filename": "main.tex",
+      "path": "main.tex",
+      "file_type": "tex"
+    },
+    {
+      "id": "cacb8c65-814a-4f45-92e4-b095909c2185",
+      "filename": "references.bib",
+      "path": "references.bib",
+      "file_type": "bib"
+    }
+  ]
+}

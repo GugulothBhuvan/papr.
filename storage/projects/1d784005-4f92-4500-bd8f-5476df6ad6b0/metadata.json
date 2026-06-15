@@ -1,0 +1,22 @@
+{
+  "id": "1d784005-4f92-4500-bd8f-5476df6ad6b0",
+  "name": "LLMs",
+  "template": "Blank",
+  "main_file": "main.tex",
+  "created_at": "2026-06-14T09:41:14.281558",
+  "updated_at": "2026-06-14T09:49:23.699484",
+  "files": [
+    {
+      "id": "907d524f-87e1-4143-9372-8d6cfe3f53a8",
+      "filename": "main.tex",
+      "path": "main.tex",
+      "file_type": "tex"
+    },
+    {
+      "id": "b995683a-9bbf-478d-b48b-3cadf62c8e96",
+      "filename": "references.bib",
+      "path": "references.bib",
+      "file_type": "bib"
+    }
+  ]
+}
