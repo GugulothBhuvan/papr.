@@ -107,6 +107,7 @@ def error_response(code: str, message: str):
 
 # --- Routes ---
 
+@app.get("/", response_model=HealthResponse)
 @app.get("/health", response_model=HealthResponse)
 @app.get("/api/health", response_model=HealthResponse)
 def health_check():
