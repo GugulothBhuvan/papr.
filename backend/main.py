@@ -26,7 +26,7 @@ ai_service = AIService()
 # Enable CORS for Next.js frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Set to specific domains in production
+    allow_origin_regex="https://.*",  # Allow any HTTPS domain (Vercel)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
