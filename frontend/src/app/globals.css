@@ -1,0 +1,270 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --background: #faf9f5;
+  /* Canvas */
+  --surface: #efe9de;
+  /* Surface Card */
+  --primary: #cc785c;
+  /* Coral */
+  --primary-hover: #a9583e;
+  --success: #5db872;
+  --warning: #d4a017;
+  --error: #c64545;
+  --foreground: #141413;
+  /* Ink */
+  --border-color: #e6dfd8;
+  /* Hairline */
+
+  --muted-text: #6c6a64;
+  /* Muted */
+  --panel-border: #ebe6df;
+  /* Hairline Soft */
+  --input-bg: #faf9f5;
+  --btn-secondary-bg: #faf9f5;
+  --btn-secondary-hover: #efe9de;
+  --btn-hover-bg: #e8e0d2;
+  --btn-hover-text: #141413;
+
+  /* Layout Colors */
+  --bg-global: #faf9f5;
+  --bg-sidebar: #faf9f5;
+  --bg-editor: #faf9f5;
+  --bg-header: #faf9f5;
+  --bg-element: #efe9de;
+  --bg-chat: #faf9f5;
+  --bg-chat-user: rgba(204, 120, 92, 0.1);
+  /* Coral with low alpha */
+  --bg-chat-ai: #efe9de;
+}
+
+[data-theme="dark"] {
+  --background: #181715;
+  /* Surface Dark */
+  --surface: #252320;
+  /* Surface Dark Elevated */
+  --primary: #cc785c;
+  /* Coral */
+  --primary-hover: #a9583e;
+  --success: #5db872;
+  --warning: #d4a017;
+  --error: #c64545;
+  --foreground: #faf9f5;
+  /* On-Dark */
+  --border-color: #252320;
+
+  --muted-text: #a09d96;
+  /* On-Dark Soft */
+  --panel-border: #1f1e1b;
+  --input-bg: #000000;
+  --btn-secondary-bg: #252320;
+  --btn-secondary-hover: #1f1e1b;
+  --btn-hover-bg: #cc785c;
+  --btn-hover-text: #ffffff;
+
+  /* Layout Colors */
+  --bg-global: #000000;
+  --bg-sidebar: #000000;
+  --bg-editor: #000000;
+  --bg-header: #000000;
+  --bg-element: #1f1e1b;
+  --bg-chat: #000000;
+  --bg-chat-user: rgba(204, 120, 92, 0.15);
+  --bg-chat-ai: #1f1e1b;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-foreground: var(--foreground);
+  --color-border-color: var(--border-color);
+
+  --color-muted-text: var(--muted-text);
+  --color-panel-border: var(--panel-border);
+  --color-input-bg: var(--input-bg);
+  --color-btn-secondary-bg: var(--btn-secondary-bg);
+  --color-btn-secondary-hover: var(--btn-secondary-hover);
+
+  --color-bg-global: var(--bg-global);
+  --color-bg-sidebar: var(--bg-sidebar);
+  --color-bg-editor: var(--bg-editor);
+  --color-bg-header: var(--bg-header);
+  --color-bg-element: var(--bg-element);
+  --color-border-layout: var(--panel-border);
+  --color-border-layout-strong: var(--border-color);
+  --color-bg-chat: var(--bg-chat);
+
+  --font-sans: var(--font-inter), 'Inter', sans-serif;
+  --font-display: var(--font-cormorant-garamond), 'Cormorant Garamond', serif;
+  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Custom UI Elements for Papr Brand */
+.papr-btn-primary {
+  @apply bg-primary text-white hover:bg-primary-hover transition-colors cursor-pointer rounded-[8px] font-medium px-5 py-3 h-10 inline-flex items-center justify-center border-none;
+}
+
+.papr-input {
+  @apply bg-transparent border border-border-layout-strong focus:border-primary/80 transition-colors rounded-[8px];
+}
+
+.papr-panel {
+  @apply border border-border-layout-strong bg-bg-element rounded-[12px];
+}
+
+/* Custom premium UI styles */
+.papr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  /* 14px */
+  font-weight: 500;
+  border-radius: 8px;
+  /* Rounded MD */
+  border: 1px solid var(--border-color);
+  background-color: var(--btn-secondary-bg);
+  color: var(--foreground);
+  cursor: pointer;
+  height: 40px;
+  transition: all 0.15s ease-in-out;
+}
+
+.papr-btn:hover:not(:disabled) {
+  border-color: var(--border-color);
+  background-color: var(--btn-secondary-hover);
+}
+
+.papr-btn:active:not(:disabled) {
+  transform: translateY(0.5px);
+}
+
+.papr-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
+
+/* Premium Double Boundary Button with Corner Brackets -> Circles Transition */
+.papr-btn-double {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1.125rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 2px;
+  /* Very sharp borders */
+  border: 1px solid var(--primary);
+  background-color: var(--btn-secondary-bg);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+  /* Crucial to show corner brackets outside button boundaries */
+}
+
+/* Corner bracket base style */
+.papr-btn-double .papr-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--primary);
+  opacity: 0.85;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+/* Default corner brackets (┌ ┐ └ ┘) */
+.papr-btn-double .papr-corner.tl {
+  top: -5px;
+  left: -5px;
+  border-top: 1.5px solid var(--primary);
+  border-left: 1.5px solid var(--primary);
+}
+
+.papr-btn-double .papr-corner.tr {
+  top: -5px;
+  right: -5px;
+  border-top: 1.5px solid var(--primary);
+  border-right: 1.5px solid var(--primary);
+}
+
+.papr-btn-double .papr-corner.bl {
+  bottom: -5px;
+  left: -5px;
+  border-bottom: 1.5px solid var(--primary);
+  border-left: 1.5px solid var(--primary);
+}
+
+.papr-btn-double .papr-corner.br {
+  bottom: -5px;
+  right: -5px;
+  border-bottom: 1.5px solid var(--primary);
+  border-right: 1.5px solid var(--primary);
+}
+
+/* Hover/Interaction State */
+.papr-btn-double:hover:not(:disabled) {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-text) !important;
+  /* Dynamically inverted text */
+  box-shadow: 0 0 14px rgba(245, 192, 192, 0.25);
+}
+
+/* Brackets morph into circles on hover */
+.papr-btn-double:hover:not(:disabled) .papr-corner {
+  border-radius: 50%;
+  border: 1.2px solid var(--btn-hover-bg) !important;
+  /* Match hover bg color for clean boundary circles */
+}
+
+/* Shift circles on hover to center perfectly */
+.papr-btn-double:hover:not(:disabled) .papr-corner.tl {
+  top: -5px;
+  left: -5px;
+}
+
+.papr-btn-double:hover:not(:disabled) .papr-corner.tr {
+  top: -5px;
+  right: -5px;
+}
+
+.papr-btn-double:hover:not(:disabled) .papr-corner.bl {
+  bottom: -5px;
+  left: -5px;
+}
+
+.papr-btn-double:hover:not(:disabled) .papr-corner.br {
+  bottom: -5px;
+  right: -5px;
+}
+
+/* Disabled state */
+.papr-btn-double:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.papr-btn-double:disabled .papr-corner {
+  opacity: 0.2;
+}
