@@ -25,7 +25,7 @@ def get_tectonic_path():
 TECTONIC_BIN = get_tectonic_path()
 
 def parse_tectonic_errors(log_content: str) -> List[Dict[str, Any]]:
-    """
+    r"""
     Parses Tectonic compile log output to find LaTeX errors and map them to line numbers.
     Example log patterns:
     ! Undefined control sequence.
